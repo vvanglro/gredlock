@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	red "github.com/go-redis/redis/v8"
-	"gredlock/redlock"
+	"github.com/vvanglro/gredlock/redlock"
 )
 
 func main() {
