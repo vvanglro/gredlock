@@ -1,4 +1,4 @@
-module gredlock
+module github.com/vvanglro/gredlock
 
 go 1.18
 
