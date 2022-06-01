@@ -1,6 +1,6 @@
 ## gredlock
 
-RedLock in Golang
+The golang redlock algorithm implementation.
 
 ## Installation
 
