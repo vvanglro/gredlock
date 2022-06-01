@@ -71,8 +71,8 @@ func NewRedisLock(ctx context.Context, options ...*red.Options) *RedLock {
 
 func (rl *RedLock) sum(iter []bool) int {
 	num := 0
-	for _, v := range iter {
-		if v {
+	for i := 0; i < len(iter); i++ {
+		if iter[i] {
 			num++
 		}
 	}
