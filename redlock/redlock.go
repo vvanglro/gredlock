@@ -53,8 +53,15 @@ type RedLock struct {
 	client []*RedClient
 }
 
+type RedLocker interface {
+	SetLock(ctx context.Context, key string, value string, ttl int) (float64, error)
+	UnSetLock(ctx context.Context, key string, value string) (float64, error)
+	GetLockTtl(ctx context.Context, key string, value string) (int64, error)
+	IsLocked(ctx context.Context, key string) bool
+}
+
 // NewRedisLock returns a RedisLock.
-func NewRedisLock(ctx context.Context, options ...*red.Options) *RedLock {
+func NewRedisLock(ctx context.Context, options ...*red.Options) RedLocker {
 	var clients []*RedClient
 	for _, opt := range options {
 		client := red.NewClient(opt)
