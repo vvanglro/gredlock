@@ -16,7 +16,7 @@ const (
 	millisPerSecond = 1000
 )
 
-var (
+const (
 	lockCommand = `
     local identifier = redis.call('get', KEYS[1])
     if not identifier or identifier == ARGV[1] then
