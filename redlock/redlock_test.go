@@ -3,8 +3,9 @@ package redlock
 import (
 	"context"
 	"fmt"
-	red "github.com/go-redis/redis/v8"
 	"testing"
+
+	red "github.com/go-redis/redis/v8"
 )
 
 func CommonClient() []*RedClient {
@@ -48,7 +49,11 @@ func TestNewRedisLock(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := NewRedisLock(tt.args.ctx, tt.args.options...)
-			for _, client := range got.client {
+			gotOut, ok := got.(*RedLock)
+			if !ok {
+				t.Fatalf("new redis lock was not a redlock instance")
+			}
+			for _, client := range gotOut.client {
 				err := client.cli.Ping(ctx).Err()
 				if err != nil {
 					t.Fatalf("redis connect error")
