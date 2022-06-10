@@ -46,3 +46,18 @@ func main() {
 	fmt.Println(err)
 }
 ```
+
+## Developing
+
+### Running Tests
+
+```bash
+# Start the Redis Containers
+docker-compose up -d
+
+# Run Tests
+go test ./...
+
+# Stop the Containers
+docker-compose down
+```
