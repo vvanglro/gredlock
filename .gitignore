@@ -12,3 +12,6 @@
 # vendor/
 
 .idea/
+
+# Local test files
+/test*.go
