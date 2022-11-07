@@ -5,7 +5,7 @@ The golang redlock algorithm implementation.
 ## Installation
 
 ```shell
-go get -u github.com/vvanglro/gredlock@v0.1.0
+go get -u github.com/vvanglro/gredlock@v0.1.3
 ```
 
 ## Quickstart
